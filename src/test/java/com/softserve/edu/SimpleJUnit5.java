@@ -43,7 +43,7 @@ public class SimpleJUnit5 {
             int i = 0;
             i = 10 / (i + 0);
         });
-        System.out.println("\t\tMessage = " + thrown.getMessage());
+        System.out.println("\t\t Message = " + thrown.getMessage());
         Assertions.assertEquals("/ by zero", thrown.getMessage());
     }
 
@@ -52,7 +52,7 @@ public class SimpleJUnit5 {
         NumberFormatException thrown = Assertions.assertThrows(NumberFormatException.class, () -> {
             int k = Integer.parseInt("One");
         }, "NumberFormatException was expected");
-        System.out.println("\t\tMessage = " + thrown.getMessage());
+        System.out.println("\t\t Message = " + thrown.getMessage());
         Assertions.assertEquals("For input string: \"One\"", thrown.getMessage());
     }
 }
