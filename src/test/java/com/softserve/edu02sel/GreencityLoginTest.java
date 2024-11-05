@@ -71,9 +71,19 @@ public class GreencityLoginTest {
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("Qwerty_1");
-        Thread.sleep(8000); // For Presentation
+        Thread.sleep(12000); // For Presentation
         //
-        driver.findElement(By.id("button.ubsStyle")).click();
+        /*
+        WebElement shadowRoot = driver.findElement(By.cssSelector("div#turnstile-container div"))
+                .getShadowRoot()
+                .findElement(By.cssSelector("iframe"));
+        driver.switchTo().frame(shadowRoot);
+        WebElement shadowRoot2 = driver.findElement(By.cssSelector("body"))
+                .getShadowRoot()
+                .findElement(By.id("success-text"));
+        System.out.println("shadowRoot2.getText() = " + shadowRoot2.getText());
+        */
+        //driver.findElement(By.id("button.ubsStyle")).click();
         //
         //Assertions.assertEquals("https://www.apple.com/ua/mac/", mac.getAttribute("href"));
     }
