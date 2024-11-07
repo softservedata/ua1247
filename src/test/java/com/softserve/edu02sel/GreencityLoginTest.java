@@ -3,10 +3,7 @@ package com.softserve.edu02sel;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -52,7 +49,7 @@ public class GreencityLoginTest {
     public void tearThis() throws InterruptedException {
         // Sign out
         // Clear session
-        Thread.sleep(4000); // For Presentation
+        Thread.sleep(8000); // For Presentation
         System.out.println("\t@AfterEach executed");
     }
 
@@ -71,9 +68,15 @@ public class GreencityLoginTest {
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("Qwerty_1");
-        Thread.sleep(12000); // For Presentation
+        Thread.sleep(2000); // For Presentation
         //
         /*
+        WebElement shadowDiv = driver.findElement(By.cssSelector("div#turnstile-container div"));
+        WebElement shadow1 = (WebElement) ((JavascriptExecutor)driver)
+                .executeScript("return arguments[0].shadowRoot", shadowDiv);
+        System.out.println("shadow1 = " + shadow1);
+        //
+        //
         WebElement shadowRoot = driver.findElement(By.cssSelector("div#turnstile-container div"))
                 .getShadowRoot()
                 .findElement(By.cssSelector("iframe"));
@@ -83,6 +86,11 @@ public class GreencityLoginTest {
                 .findElement(By.id("success-text"));
         System.out.println("shadowRoot2.getText() = " + shadowRoot2.getText());
         */
+        //
+        ((JavascriptExecutor)driver)
+                .executeScript("document.querySelector('button.ubsStyle').removeAttribute('disabled')");
+        ((JavascriptExecutor)driver)
+                .executeScript("document.querySelector('button.ubsStyle').click()");
         //driver.findElement(By.id("button.ubsStyle")).click();
         //
         //Assertions.assertEquals("https://www.apple.com/ua/mac/", mac.getAttribute("href"));
