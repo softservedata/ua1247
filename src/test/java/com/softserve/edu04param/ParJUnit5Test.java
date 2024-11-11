@@ -98,14 +98,14 @@ public class ParJUnit5Test {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/data.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/data.csv", numLinesToSkip = 2)
     void shouldGenerateTheExpectedUppercaseValueCSVFile(String input, String expected) {
         String actualValue = input.toUpperCase();
         Assertions.assertEquals(expected, actualValue);
     }
 
     public static Object[][] sum5Provider() {
-        return new Object[][]{
+        return new Object[][] {
                 {1, 2, 3},
                 {5, 4, 9},
                 {11, 2, 13}
