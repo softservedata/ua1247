@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class SeleniumDownload {
     private static final Long ONE_SECOND_DELAY = 1000L;
     private static WebDriver driver;
