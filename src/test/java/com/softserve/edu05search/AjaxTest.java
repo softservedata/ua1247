@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+//@Tag("slow")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AjaxTest {
 	private final String BASE_URL = "https://devexpress.github.io/devextreme-reactive/react/grid/docs/guides/paging/";
@@ -126,8 +127,9 @@ public class AjaxTest {
         //driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_SECONDS, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_SECONDS));
     }
-	
+
 	@Test
+	@Tag("slow")
     public void AjaxIframePage() {
         // Move to Element by JavaScript Injection
         WebElement position = driver.findElement(By.id("use-paging-with-other-data-processing-plugins"));
