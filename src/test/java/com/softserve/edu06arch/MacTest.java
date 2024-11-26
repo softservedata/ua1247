@@ -18,9 +18,9 @@ public class MacTest extends TestRunnerGoogle {
         //
         Assertions.assertEquals("mac", gm.getSearchFieldText());
         //
-        //WebElement mac = driver.findElement(By.xpath("//h3[text()='Mac - Apple (UA)']/.."));
-        //System.out.println("mac.href = " + mac.getAttribute("href"));
-        //Assertions.assertEquals("https://www.apple.com/ua/mac/", mac.getAttribute("href"));
+        WebElement macComputer = driver.findElement(By.xpath("//h3[contains(text(), 'Mac (computer)')]/.."));
+        System.out.println("mac.href = " + macComputer.getAttribute("href"));
+        Assertions.assertEquals("https://en.wikipedia.org/wiki/Mac_(computer)", macComputer.getAttribute("href"));
     }
 
 }

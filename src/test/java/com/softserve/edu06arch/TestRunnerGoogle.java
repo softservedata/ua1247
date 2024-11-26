@@ -21,7 +21,7 @@ import java.util.Date;
 
 @ExtendWith(RunnerSuccessful.class)
 public abstract class TestRunnerGoogle {
-    private static final String BASE_URL = "https://www.google.com.ua/";
+    private static final String BASE_URL = "https://www.google.com/";
     private static final Long IMPLICITLY_WAIT_SECONDS = 10L;
     private static final Long ONE_SECOND_DELAY = 1000L;
     private final String TIME_TEMPLATE = "yyyy-MM-dd_HH-mm-ss-S";
