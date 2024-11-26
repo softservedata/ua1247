@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +22,7 @@ import java.util.Date;
 
 @ExtendWith(RunnerSuccessful.class)
 public abstract class TestRunnerGoogle {
-    private static final String BASE_URL = "https://www.google.com/";
+    private static final String BASE_URL = "https://www.google.com.ua/";
     private static final Long IMPLICITLY_WAIT_SECONDS = 10L;
     private static final Long ONE_SECOND_DELAY = 1000L;
     private final String TIME_TEMPLATE = "yyyy-MM-dd_HH-mm-ss-S";
@@ -77,7 +78,18 @@ public abstract class TestRunnerGoogle {
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--remote-allow-origins=*");
 //        driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        //
+        //driver = new ChromeDriver();
+        //
+        String userProfile = System.getenv("HOMEPATH")
+                + "\\AppData\\Local\\Google\\Chrome\\User Data";
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        // options.addArguments("--no-sandbox");
+        // options.addArguments("--disable-web-security");
+        //options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--user-data-dir=" + userProfile);
+        driver = new ChromeDriver(options);
         //
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_SECONDS)); // 0 by default
         driver.manage().window().maximize();
