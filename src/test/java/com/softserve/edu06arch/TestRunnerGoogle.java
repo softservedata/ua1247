@@ -81,7 +81,9 @@ public abstract class TestRunnerGoogle {
         //
         //driver = new ChromeDriver();
         //
-        String userProfile = System.getenv("HOMEPATH")
+        // in CMD: echo %SystemDrive%%HOMEPATH%
+        String userProfile = System.getenv("SystemDrive")
+                + System.getenv("HOMEPATH")
                 + "\\AppData\\Local\\Google\\Chrome\\User Data";
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
@@ -92,7 +94,7 @@ public abstract class TestRunnerGoogle {
         driver = new ChromeDriver(options);
         //
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_SECONDS)); // 0 by default
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         //
         //googleMod = new GoogleMod(driver);
         System.out.println("@BeforeAll executed");

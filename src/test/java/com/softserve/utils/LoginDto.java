@@ -3,11 +3,11 @@ package com.softserve.utils;
 import java.util.Objects;
 
 public class LoginDto {
-    Long userId;
-    String accessToken;
-    String refreshToken;
-    String name;
-    Boolean ownRegistrations;
+    private Long userId;
+    private String accessToken;
+    private String refreshToken;
+    private String name;
+    private Boolean ownRegistrations;
 
     public LoginDto(Long userId, String accessToken, String refreshToken, String name, Boolean ownRegistrations) {
         this.userId = userId;
