@@ -70,7 +70,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
+.env
 
 #######################################################################
 ## Custom
@@ -111,6 +111,8 @@ build/
 workspace.xml
 *.iml
 *.ucls
+
+/src/test/resources/.env
 
 # Multi Modules Project
 /**/.externalToolBuilders/

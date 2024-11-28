@@ -1,6 +1,7 @@
 package com.softserve.framework.test;
 
 import com.softserve.framework.modules.GreencityGuest;
+import com.softserve.framework.modules.GreencityLogged;
 import com.softserve.framework.utils.LocalStorageJS;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -32,6 +33,7 @@ public abstract class TestRunner {
     //
     protected static LocalStorageJS localStorageJS;
     protected static GreencityGuest greencityGuest;
+    protected static GreencityLogged greencityLogged;
     protected static WebDriver driver;
 
     public static void presentationSleep() {
@@ -102,6 +104,7 @@ public abstract class TestRunner {
         //
         localStorageJS = new LocalStorageJS(driver);
         greencityGuest = new GreencityGuest(driver);
+        greencityLogged = new GreencityLogged(driver);
         System.out.println("@BeforeAll executed");
     }
 

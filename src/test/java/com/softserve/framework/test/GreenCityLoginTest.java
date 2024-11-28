@@ -31,7 +31,7 @@ public class GreenCityLoginTest extends TestRunner {
         presentationSleep(); // For Presentation
         //
         // get Username
-        String actualUserName = driver.findElement(By.cssSelector("li.ubs-user-name")).getText();
+        String actualUserName = greencityLogged.getUsername();
         String expectedUserName = testerUser.getUsername();
         presentationSleep(); // For Presentation ONLY
         //
