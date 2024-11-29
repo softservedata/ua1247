@@ -53,6 +53,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.11.3</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- - - - - - Automation - - - - - -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -88,6 +95,12 @@
             <version>4.12.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
         <!-- - - - - - Logging - - - - - -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -101,6 +114,13 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${org.slf4j.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- - - - - - Properties - - - - - -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
     </dependencies>
@@ -136,7 +156,8 @@
                 <version>3.5.1</version>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/SuiteDemo.java</include>
+                        <!-- <include>**/*Test.java</include> -->
                         <!-- <include>**/SimpleJUnit5.java</include> -->
                     </includes>
                     <systemPropertyVariables>

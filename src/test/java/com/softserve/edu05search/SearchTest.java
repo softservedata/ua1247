@@ -190,7 +190,7 @@ public class SearchTest {
         presentationSleep(); // For Presentation ONLY
     }
 
-    //Test // TODO
+    @Test // TODO
     public void findByXPath() {
         // Precondition
         // Choose Curency
