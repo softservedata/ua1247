@@ -43,9 +43,9 @@ public class GreencityLoginTest {
         driver = new ChromeDriver(options);
         */
         //
-        //driver = new ChromeDriver();
+        driver = new ChromeDriver();
         //
-        // /*
+        /*
         service = new ChromeDriverService.Builder()
                 // .usingDriverExecutable(new File("./lib/chromedriver.exe"))
                 // .usingAnyFreePort()
@@ -57,7 +57,7 @@ public class GreencityLoginTest {
         options.setExperimentalOption("useAutomationExtension", false);
         //
         driver = new ChromeDriver((ChromeDriverService) service, options);
-        // */
+        */
         //
         //DesiredCapabilities capabilities = new DesiredCapabilities();
         //capabilities.setCapability(ChromeOptions.CAPABILITY, options);
@@ -72,7 +72,7 @@ public class GreencityLoginTest {
     @AfterAll
     public static void tear() {
         if (driver != null) {
-            driver.quit(); // close()
+            //driver.quit(); // close()
         }
         System.out.println("@AfterAll executed");
     }
@@ -138,13 +138,15 @@ public class GreencityLoginTest {
                 .findElement(By.id("success-text"));
         System.out.println("shadowRoot2.getText() = " + shadowRoot2.getText());
         */
-        //
+        /*
         ((JavascriptExecutor)driver)
                 .executeScript("document.querySelector('button.ubsStyle').removeAttribute('disabled')");
         ((JavascriptExecutor)driver)
                 .executeScript("document.querySelector('button.ubsStyle').click()");
         //driver.findElement(By.id("button.ubsStyle")).click();
-        //
+        */
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(String.format("window.localStorage.setItem('%s','%s');", "key123", "value123"));
         //Assertions.assertEquals("https://www.apple.com/ua/mac/", mac.getAttribute("href"));
     }
 }

@@ -1,4 +1,4 @@
-package com.softserve.utils;
+package com.softserve.framework.data;
 
 import java.util.Objects;
 
@@ -28,7 +28,8 @@ public class OwnSignInDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof OwnSignInDto that)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+        OwnSignInDto that = (OwnSignInDto) o;
         return Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(captchaToken, that.captchaToken);
     }
 

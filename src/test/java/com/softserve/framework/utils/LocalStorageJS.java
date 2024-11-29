@@ -1,4 +1,4 @@
-package com.softserve.utils;
+package com.softserve.framework.utils;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package com.softserve.utils;
+package com.softserve.framework.utils;
 
 import java.io.FileInputStream;
 import java.util.Properties;

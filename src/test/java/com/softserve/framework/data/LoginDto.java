@@ -1,4 +1,4 @@
-package com.softserve.utils;
+package com.softserve.framework.data;
 
 import java.util.Objects;
 
