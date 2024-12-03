@@ -12,6 +12,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,7 @@ public abstract class TestRunner {
     private static final Long ONE_SECOND_DELAY = 1000L;
     private final String TIME_TEMPLATE = "yyyy-MM-dd_HH-mm-ss-S";
     protected static Boolean isTestSuccessful = false;
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     //
     protected static LocalStorageJS localStorageJS;
     protected static GreencityGuest greencityGuest;
@@ -127,6 +130,8 @@ public abstract class TestRunner {
     @AfterEach
     public void tearThis(TestInfo testInfo) {
         if (!isTestSuccessful) {
+            logger.error("Test_Name = " + testInfo.getDisplayName() + " failed");
+            //
             System.out.println("\t\t\tgetTestMethod = " + testInfo.getTestMethod());
             System.out.println("\t\t\tgetDisplayName = " + testInfo.getDisplayName());
             // delete session

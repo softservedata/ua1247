@@ -22,7 +22,7 @@ public class GreenCityLoginTest extends TestRunner {
     @ParameterizedTest(name = "{index} => testerUser={0}")
     @MethodSource("provideTesterUsers")
     public void checkLogin(TesterUser testerUser) {
-        //logger.info("Start checkLogin() with testerUser = " + testerUser);
+        logger.info("Start checkLogin() with testerUser = " + testerUser);
         //
         loadApplication();
         presentationSleep(); // For Presentation

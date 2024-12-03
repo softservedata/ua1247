@@ -1,14 +1,19 @@
 package com.softserve.framework.modules;
 
+import com.softserve.edu07log.training.Some;
 import com.softserve.framework.data.LoginDto;
 import com.softserve.framework.data.TesterUser;
 import com.softserve.framework.test.TestRunner;
 import com.softserve.framework.utils.LocalStorageJS;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GreencityGuest {
 
+    public static final Logger logger = LoggerFactory.getLogger(GreencityGuest.class);
+    //
     private WebDriver driver;
     //
     private GreencityPost greencityPost;
@@ -30,7 +35,7 @@ public class GreencityGuest {
 
     //public void signIn(String email, String password) {
     public void signIn(TesterUser testerUser) {
-        //logger.debug("Start signIn with user = " + user);
+        logger.debug("Start signIn with user = " + testerUser);
         //
         // Click Login Button
         driver.findElement(By.cssSelector("app-ubs .ubs-header-sing-in-img")).click();
@@ -62,6 +67,8 @@ public class GreencityGuest {
         //
         driver.navigate().refresh();
         TestRunner.presentationSleep(); // For Presentation ONLY
+        //
+        logger.debug("Done signIn with user = " + testerUser);
     }
 
 }
