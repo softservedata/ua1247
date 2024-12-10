@@ -17,6 +17,8 @@
         <java.version>21</java.version>
         <org.slf4j.version>2.0.16</org.slf4j.version>
         <junit.jupiter.version>5.11.3</junit.jupiter.version>
+        <!-- - - - - - Password - - - - - -->
+        <application.password>null123</application.password>
     </properties>
 
     <dependencies>
@@ -48,6 +50,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.11.3</version>
             <scope>test</scope>
         </dependency>
 
@@ -86,6 +95,12 @@
             <version>4.12.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
         <!-- - - - - - Logging - - - - - -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -100,6 +115,14 @@
             <version>${org.slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
@@ -134,9 +157,15 @@
                 <version>3.5.1</version>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include>
+                        <include>**/SuiteDemo.java</include>
+                        <!-- <include>**/*Test.java</include> -->
                         <!-- <include>**/SimpleJUnit5.java</include> -->
                     </includes>
+                    <systemPropertyVariables>
+                        <surefire.application.password>
+                            ${application.password}
+                        </surefire.application.password>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
