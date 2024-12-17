@@ -87,6 +87,7 @@ public class TestRunner {
         }
         @BeforeEach
         public void setupThis() {
+            logger.info("Start!");
             greenCity = new GreenCity(driver, wait);
             greenCity.openSignInPage(BASE_URL);
             ((JavascriptExecutor) driver).executeScript("window.localStorage.setItem('language', 'en');");
@@ -102,8 +103,8 @@ public class TestRunner {
                 logOut();
             }
             if (!isTestSuccessful) {
-                System.out.println("\t\t\tgetTestMethod = " + testInfo.getTestMethod());
-                System.out.println("\t\t\tgetDisplayName = " + testInfo.getDisplayName());
+                logger.info("\t\t\tgetTestMethod ={}", testInfo.getTestMethod());
+                logger.info("\t\t\tgetDisplayName =  {}", testInfo.getDisplayName());
                 takeScreenShot();
                 takePageSource();
             }

@@ -11,11 +11,11 @@ public class RunnerSuccess implements AfterTestExecutionCallback {
     public static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
     @Override
-    public void afterTestExecution(ExtensionContext context) throws Exception {
+    public void afterTestExecution(ExtensionContext context) {
         Boolean testResult = context.getExecutionException().isPresent();
-        System.out.println("\t\t\t\tException.isPresent() = " + testResult); //false - SUCCESS, true - FAILED
-        System.out.println("\t\t\t\tTest context.getDisplayName(): "+ context.getDisplayName());
-        //
+        logger.info("\t\t\tException.isPresent() = {}", testResult);
+        logger.info("\t\t\tTest context.getDisplayName(): {}", context.getDisplayName());
+
         TestRunner.isTestSuccessful = !testResult;
     }
 }
