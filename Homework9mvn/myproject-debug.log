@@ -1,0 +1,32 @@
+[ INFO] 11:08:57 main TestRunner:verifyTitle:27 - verify title test executed
+[ INFO] 11:09:16 main TestRunner:signInNegativeBoth:62 - signInNegativeBoth test executed
+[ INFO] 11:09:33 main TestRunner:signInNegativeBoth:62 - signInNegativeBoth test executed
+[ INFO] 11:09:49 main TestRunner:signInNegativeBoth:62 - signInNegativeBoth test executed
+[ INFO] 11:10:05 main TestRunner:signInEmptyPassword:140 - signInEmptyPassword test executed
+[ INFO] 11:10:24 main TestRunner:checkLogin:47 - 		Test testUi() executed
+[ INFO] 11:10:35 main TestRunner:signInEmptyCredentials:122 - signInEmptyCredentials test executed
+[ INFO] 11:10:51 main TestRunner:signInEmptyEmail:131 - signInEmptyEmail test executed
+[ INFO] 11:11:08 main TestRunner:signInNonExistentUser:83 - signInNonExistentUser test executed
+[ INFO] 11:11:25 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:12:22 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:12:38 main TestRunner:signInWrongEmailGoodPassword:92 - signInWrongEmailGoodPassword test executed
+[ INFO] 11:12:56 main TestRunner:signInWrongEmailGoodPassword:92 - signInWrongEmailGoodPassword test executed
+[ INFO] 11:13:12 main TestRunner:signInWrongEmailGoodPassword:92 - signInWrongEmailGoodPassword test executed
+[ INFO] 11:13:31 main TestRunner:signInWrongEmailGoodPassword:92 - signInWrongEmailGoodPassword test executed
+[ INFO] 11:13:47 main TestRunner:signInLongPassword:104 - signInLongPassword test executed
+[ INFO] 11:14:04 main TestRunner:signInLongPassword:104 - signInLongPassword test executed
+[ INFO] 11:14:57 main TestRunner:signInLongPassword:104 - signInLongPassword test executed
+[ INFO] 11:15:14 main TestRunner:signInGoodEmailWrongPassword:113 - signInGoodEmailWrongPassword test executed
+[ INFO] 11:15:30 main TestRunner:signInGoodEmailWrongPassword:113 - signInGoodEmailWrongPassword test executed
+[ INFO] 11:15:41 main TestRunner:tear:86 - @AfterAll executed
+[ INFO] 11:23:07 main TestRunner:signInNonExistentUser:83 - signInNonExistentUser test executed
+[ INFO] 11:23:18 main TestRunner:tear:86 - @AfterAll executed
+[ INFO] 11:24:28 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:25:19 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:25:30 main TestRunner:tear:86 - @AfterAll executed
+[ INFO] 11:27:15 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:28:09 main TestRunner:signInNonExistentUserCSVFile:71 - signInNonExistentUserCSVFile test executed
+[ INFO] 11:28:20 main TestRunner:tear:86 - @AfterAll executed
+[ INFO] 11:33:08 main TestRunner:tear:86 - @AfterAll executed
+[ INFO] 11:33:38 main TestRunner:signInGoodEmailShortPassword:95 - signInGoodEmailShortPassword test executed
+[ INFO] 11:33:51 main TestRunner:tear:86 - @AfterAll executed

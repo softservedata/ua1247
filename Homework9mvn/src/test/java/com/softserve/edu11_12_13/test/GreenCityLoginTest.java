@@ -9,10 +9,13 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.stream.Stream;
 
 public class GreenCityLoginTest extends TestRunner {
+
 @Test
     public void verifyTitle() {
         Assertions.assertEquals("Welcome back!", greenCity.getWelcomeText());
@@ -21,6 +24,8 @@ public class GreenCityLoginTest extends TestRunner {
         Assertions.assertTrue(greenCity.isSignUpLinkVisible(), "Sign-up link should be visible.");
         Assertions.assertTrue(greenCity.isGoogleSignInButtonVisible(), "Google Sign-In button should be visible.");
         Assertions.assertFalse(greenCity.isSubmitButtonEnabled(), "Sign In button should be disabled by default.");
+    logger.info("verify title test executed");
+
     }
     private static Stream<Arguments> provideTesterUsers() {
         return Stream.of(
@@ -39,8 +44,7 @@ public class GreenCityLoginTest extends TestRunner {
 
         Assertions.assertEquals(expectedUserName, actualUserName);
         presentationSleep();
-
-        System.out.println("\t\tTest testUi() executed");
+        logger.info("\t\tTest testUi() executed");
     }
     @ParameterizedTest
     @CsvSource({ "sdgnlanglkgn,090193",
@@ -55,6 +59,8 @@ public class GreenCityLoginTest extends TestRunner {
                 String.format("Unexpected error message for email: %s", email));
         Assertions.assertEquals("Password must be at least 8 characters long without spaces", greenCity.getErrorPasswordText(),
                 String.format("Unexpected error message for password: %s", password));
+        logger.info("signInNegativeBoth test executed");
+
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/data.csv")
@@ -62,6 +68,7 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Bad email or password", greenCity.getGeneralErrorText());
+        logger.info("signInNonExistentUserCSVFile test executed");
     }
 
     @ParameterizedTest
@@ -73,6 +80,20 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Bad email or password", greenCity.getGeneralErrorText());
+        logger.info("signInNonExistentUser test executed");
+}
+    @ParameterizedTest
+    @CsvSource({
+            "kristina50963@gmail.com,qwerty"
+    })
+
+    public void signInGoodEmailShortPassword(String email, String password) {
+        greenCity.inputCredentials(email, password);
+        greenCity.clickSubmitButton();
+        Assertions.assertEquals("Password must be at least 8 characters long without spaces", greenCity.getErrorPasswordText(),
+                String.format("Unexpected error message for password: %s", password));
+        logger.info("signInGoodEmailShortPassword test executed");
+
     }
     @ParameterizedTest
     @CsvFileSource(resources = "/dataWrongEmail.csv")
@@ -81,9 +102,9 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Please check that your e-mail address is indicated correctly", greenCity.getErrorEmailText(),
                 String.format("Unexpected error message for email: %s", email));
-
+        logger.info("signInWrongEmailGoodPassword test executed");
     }
-    //Цей тест знайшов багу - пароль з пробілами
+    //Цей тест знайшов багу - пароль з пробілами. Тому він падає
     @ParameterizedTest
     @CsvFileSource(resources = "/dataLongPassword.csv")
     public void signInLongPassword(String email, String password) {
@@ -93,7 +114,8 @@ public class GreenCityLoginTest extends TestRunner {
                 String.format("Unexpected error message for email: %s", email));
         Assertions.assertEquals("Password must be less than 20 characters long without spaces.", greenCity.getErrorPasswordText(),
                 String.format("Unexpected error message for password: %s", password));
-    }
+        logger.info("signInLongPassword test executed");
+}
     @ParameterizedTest
     @CsvSource({ "Roman.tsvyk.pb.2018@lpnu.ua,090193",
             "Roman.tsvyk.pb.2018@lpnu.ua,@#657"})
@@ -101,6 +123,7 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Password must be at least 8 characters long without spaces",greenCity.getErrorPasswordText());
+        logger.info("signInGoodEmailWrongPassword test executed");
     }
     @Test
     public void signInEmptyCredentials() {
@@ -109,6 +132,7 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Please fill all red fields",greenCity.getGeneralErrorText());
+        logger.info("signInEmptyCredentials test executed");
     }
     @Test
     public void signInEmptyEmail() {
@@ -117,6 +141,7 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Email is required",greenCity.getErrorEmailText());
+        logger.info("signInEmptyEmail test executed");
     }
     @Test
     public void signInEmptyPassword() {
@@ -125,5 +150,6 @@ public class GreenCityLoginTest extends TestRunner {
         greenCity.inputCredentials(email, password);
         greenCity.clickSubmitButton();
         Assertions.assertEquals("Password is required",greenCity.getErrorPasswordText());
+        logger.info("signInEmptyPassword test executed");
     }
 }

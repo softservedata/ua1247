@@ -10,6 +10,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +34,7 @@ public class TestRunner {
         private WebDriver driver;
         private static WebDriverWait wait;
     protected static GreenCityLogged greencityLogged;
+    public static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
         protected GreenCity greenCity;
         public static void presentationSleep() {
@@ -43,8 +46,7 @@ public class TestRunner {
             try {
                 Thread.sleep(seconds * TWO_SECOND_DELAY); // For Presentation ONLY
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.error("Something failed",e);
             }
         }
     private void takeScreenShot() {
@@ -53,9 +55,7 @@ public class TestRunner {
         try {
             FileUtils.copyFile(scrFile, new File("./" + currentTime + "_screenshot.png"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            // Use Custom Exception
+            logger.error("Something failed",e);
         }
     }
     private void takePageSource() {
@@ -66,8 +66,7 @@ public class TestRunner {
         try {
             Files.write(path, strToBytes, StandardOpenOption.CREATE);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Something failed",e);
         }
     }
         @BeforeAll
@@ -84,7 +83,7 @@ public class TestRunner {
             if (driver != null) {
                 driver.quit(); // close()
             }
-            System.out.println("@AfterAll executed");
+            logger.info("@AfterAll executed");
         }
         @BeforeEach
         public void setupThis() {
@@ -105,10 +104,8 @@ public class TestRunner {
             if (!isTestSuccessful) {
                 System.out.println("\t\t\tgetTestMethod = " + testInfo.getTestMethod());
                 System.out.println("\t\t\tgetDisplayName = " + testInfo.getDisplayName());
-                // delete session
                 takeScreenShot();
-                takePageSource(); // Default sources
-                // TODO JS sources
+                takePageSource();
             }
             driver.manage().deleteAllCookies();
 
