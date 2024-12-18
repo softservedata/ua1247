@@ -4,14 +4,16 @@ import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.stream.Stream;
 
+import static com.softserve.edu13.utils.ConfigLoader.getProperty;
+
 public class TestUserRepository {
     public static Stream<Arguments> validUser() {
         return Stream.of(
-                Arguments.of(new TestUser("validuser@greencity.com", "ValidPass123!"))
+                Arguments.of(new TestUser(getProperty("VALID_USER_EMAIL"), getProperty("VALID_USER_PASS")))
         );
     }
 
-    private static Stream<Arguments> userWithEmptyFields() {
+    public static Stream<Arguments> userWithEmptyFields() {
         return Stream.of(
                 Arguments.of(new TestUser("", ""), "Please fill all red fields")
         );
@@ -23,20 +25,20 @@ public class TestUserRepository {
         );
     }
 
-    private static Stream<Arguments> userWithInvalidPassword() {
+    public static Stream<Arguments> userWithInvalidPassword() {
         return Stream.of(
                 Arguments.of(new TestUser("validuser@greencity.com", "IncorrectPass1!"), "Bad email or password")
         );
     }
 
-    private static Stream<Arguments> userWithEmptyEmail() {
+    public static Stream<Arguments> userWithEmptyEmail() {
         return Stream.of(
                 Arguments.of(new TestUser("", "ValidPass123!"), "Email is required")
         );
     }
 
 
-    private static Stream<Arguments> userWithIllegalEmail() {
+    public static Stream<Arguments> userWithIllegalEmail() {
         String errorMessage = "Please check that your e-mail address is indicated correctly";
         String password = "ValidPass123!";
 
@@ -48,7 +50,7 @@ public class TestUserRepository {
     }
 
 
-    private static Stream<Arguments> userWithIllegalPassword() {
+    public static Stream<Arguments> userWithIllegalPassword() {
         String email = "validuser@greencity.com";
         String generalErrorMessage = "Password have from 8 to 20 characters long without spaces and contain " +
                 "at least one uppercase letter (A-Z), one lowercase letter (a-z), a digit (0-9), " +

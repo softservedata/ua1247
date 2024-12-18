@@ -12,8 +12,8 @@ public class ElementNotFoundException extends RuntimeException {
     private static String buildMessage(By locator, WebDriver driver) {
         return String.format("""
                 Element not found:
-                    Locator: [%s];
-                    Page URL: [%s].
+                        Locator: [%s];
+                        Page URL: [%s].
                 """, locator.toString(), driver.getCurrentUrl()
         );
     }

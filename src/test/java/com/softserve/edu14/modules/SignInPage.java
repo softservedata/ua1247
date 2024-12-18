@@ -1,8 +1,6 @@
 package com.softserve.edu14.modules;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignInPage extends BasicFunctions {
     private final By signInButton = By.cssSelector("a.header_sign-in-link");
@@ -20,10 +18,6 @@ public class SignInPage extends BasicFunctions {
     private final By closeSignInWindow = By.cssSelector(".close-modal-window");
     private final By googleSignInButton = By.cssSelector(".google-sign-in");
 
-
-    public SignInPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
-    }
 
     public SignInPage openSignInPage(String path) {
         openPage(path);
@@ -45,7 +39,11 @@ public class SignInPage extends BasicFunctions {
     public SignInPage inputCredentials(String email, String password) {
         inputText(emailInput, email);
         inputText(passwordInput, password);
-        getElement(emailInput).click();
+        return this;
+    }
+
+    public SignInPage switchLanguageToEnglish() {
+        super.switchLanguageToEnglish();
         return this;
     }
 
