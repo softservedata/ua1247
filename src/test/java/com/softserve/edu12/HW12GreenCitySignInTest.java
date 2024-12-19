@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class HW11GreenCitySignInTest {
+public class HW12GreenCitySignInTest {
 
     private static final String BASE_URL = "http://localhost:4205/#/greenCity";
     private static final long IMPLICITLY_WAIT_SECONDS = 1L;
