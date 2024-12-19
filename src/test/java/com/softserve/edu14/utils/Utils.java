@@ -39,8 +39,8 @@ public class Utils {
     }
 
     public static String prettifyTestInfo(TestResultContextData testResultContext) {
-        String testInfo = testResultContext.getTestInfo();
-        String errorInfo = testResultContext.getErrorInfo();
+        String testInfo = testResultContext.testInfo();
+        String errorInfo = testResultContext.errorInfo();
         return String.format("""
                 {
                     TEST_INFO: %s

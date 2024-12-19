@@ -1,3 +1,4 @@
 package com.softserve.edu14.data;
 
-public record TestUser(String email, String password) {}
+public record TestUser(String email, String password) {
+}
